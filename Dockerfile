@@ -1,6 +1,7 @@
 FROM ubuntu:18.04
 
 ARG RELEASE_TAG
+ARG REPO_PATH=gitpod-io/openvscode-server
 
 ARG USERNAME=openvscode-server
 ARG USER_UID=1000
@@ -13,7 +14,7 @@ RUN apt update && \
 WORKDIR /home/
 
 # Downloading the latest VSC Server release and extracting the release archive
-RUN wget https://github.com/gitpod-io/openvscode-server/releases/download/${RELEASE_TAG}/${RELEASE_TAG}-linux-x64.tar.gz && \
+RUN wget https://github.com/${REPO_PATH}/releases/download/${RELEASE_TAG}/${RELEASE_TAG}-linux-x64.tar.gz && \
     tar -xzf ${RELEASE_TAG}-linux-x64.tar.gz && \
     rm -f ${RELEASE_TAG}-linux-x64.tar.gz
 
