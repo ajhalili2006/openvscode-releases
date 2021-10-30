@@ -45,7 +45,7 @@ jobs:
           echo "RELEASE_COMMIT=$(cat __release_commit.txt)" >> $GITHUB_ENV
       - uses: actions/checkout@v2
         with:
-          repository: gitpod-io/openvscode-server
+          repository: ajhalili2006/gitpodified-server
           ref: ${{ env.RELEASE_COMMIT }}
           path: openvscode-server
           token: ${{ secrets.VSCODE_GITHUB_TOKEN }}
@@ -197,7 +197,7 @@ jobs:
         if: env.QUALITY == 'stable'
         uses: softprops/action-gh-release@v1
         with:
-          repository: gitpod-io/openvscode-server
+          repository: ajhalili2006/gitpodified-server
           target_commitish: ${{ env.RELEASE_COMMIT }}
           body: OpenVSCode Server v${{ env.VERSION }}
           tag_name: openvscode-server-v${{ env.VERSION }}
@@ -210,7 +210,7 @@ jobs:
         if: env.QUALITY == 'nightly'
         uses: dev-drprasad/delete-older-releases@v0.2.0
         with:
-          repo: gitpod-io/openvscode-server
+          repo: ajhalili2006/gitpodified-server
           keep_latest: 0
           delete_tags: true
           delete_tag_pattern: openvscode-server-nightly
@@ -223,7 +223,7 @@ jobs:
         if: env.QUALITY == 'nightly'
         uses: softprops/action-gh-release@v1
         with:
-          repository: gitpod-io/openvscode-server
+          repository: ajhalili2006/gitpodified-server
           target_commitish: ${{ env.RELEASE_COMMIT }}
           body: OpenVSCode Server Nightly v${{ env.VERSION }}
           tag_name: openvscode-server-nightly-v${{ env.VERSION }}

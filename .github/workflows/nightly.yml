@@ -25,15 +25,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: "gitpod-io/openvscode-server"
+          repository: "ajhalili2006/gitpodified-server"
           ref: ${{ env.RELEASE_BRANCH }}
           fetch-depth: 0
           token: ${{ secrets.VSCODE_GITHUB_TOKEN }}
 
       - name: Configure git credentials
         run: |
-          git config user.name Jean Pierre
-          git config user.email jeanpierre@gitpod.io
+          git config user.name RecapTimeBot
+          git config user.email recaptime.madebthepins@gmail.com
 
       - name: Setup Build Environment
         run: |
@@ -50,7 +50,7 @@ jobs:
 
       - name: Sync with upstream (rebase)
         run: |
-          ./scripts/sync-with-upstream.sh ${{ env.PARENT_COMMIT }} ${{ env.RELEASE_BRANCH }} "code web server initial commit" true
+          ./scripts/sync-with-upstream.sh ${{ env.PARENT_COMMIT }} ${{ env.RELEASE_BRANCH }} "Nightly sync with upstream vscode changes" true
 
       - name: Compute node modules cache key
         id: nodeModulesCacheKey
